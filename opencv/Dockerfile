@@ -72,7 +72,7 @@ RUN \
         -D BUILD_EXAMPLES=ON .. && \
 
     cd ~/opencv/build && \
-    make $(nproc) && \
+    make -j $(nproc) && \
     make install && \
     ldconfig
 
