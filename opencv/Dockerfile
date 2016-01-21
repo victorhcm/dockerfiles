@@ -66,11 +66,13 @@ RUN \
         -D CMAKE_INSTALL_PREFIX=/usr/local \
         -D INSTALL_C_EXAMPLES=OFF \
         -D INSTALL_PYTHON_EXAMPLES=ON \
+        -D WITH_IPP=ON \
+        -D INSTALL_CREATE_DISTRIB=ON \
         -D OPENCV_EXTRA_MODULES_PATH=/root/opencv_contrib/modules \
         -D BUILD_EXAMPLES=ON .. && \
 
     cd ~/opencv/build && \
-    make -j4 && \
+    make $(nproc) && \
     make install && \
     ldconfig
 
