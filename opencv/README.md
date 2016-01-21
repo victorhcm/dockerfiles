@@ -6,7 +6,7 @@ OpenCV 3.1.0 + Python 2.7 bindings. Built following the [PyImageSearch guide][1]
 
 Create a new container:
 ```sh
-$ docker run --name <CONTAINER_NAME> -it -v $(pwd):/host victorhcm/opencv
+$ docker run --name <CONTAINER_NAME> -it -v $(pwd):/host victorhcm/opencv /bin/bash
 ```
 
 Detach using `Ctrl+p`+`Ctrl+q`.
@@ -25,7 +25,7 @@ $ docker start <CONTAINER_NAME>
 If you want a transient container, add `--rm` to remove the container after it stops (via @schickling):
 
 ```sh
-$ docker run --rm -it -v $(pwd):/host victorhcm/opencv
+$ docker run --rm -it -v $(pwd):/host victorhcm/opencv /bin/bash
 ```
 
 ### Compile
