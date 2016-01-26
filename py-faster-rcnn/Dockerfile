@@ -10,7 +10,7 @@ RUN \
 
     pip install --upgrade pip && \
     pip install cython && \
-    pip install easydict && \
+    pip install easydict
 
 # clean stuff
 #     apt-get autoclean && apt-get clean && \
