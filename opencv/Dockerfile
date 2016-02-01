@@ -72,7 +72,9 @@ RUN \
     cd ~/opencv/build && \
     make -j $(nproc) && \
     make install && \
-    ldconfig
+    ldconfig && \
+
+    cp ~/opencv/build/lib/cv2.so /usr/local/lib/python2.7/dist-packages/
 
     # step 11
     # RUN cd ~/.virtualenvs/cv/lib/python2.7/site-packages/
