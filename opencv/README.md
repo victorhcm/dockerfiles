@@ -77,6 +77,14 @@ add_executable(opencv_example example.cpp)
 target_link_libraries(opencv_example ${OpenCV_LIBS})
 ```
 
+After adding the CMakeLists.txt file in the root of your project, create a build folder and compile:
+
+```sh
+mkdir project/build
+cd project/build
+cmake ..
+make
+```
 
 [1]: www.pyimagesearch.com/2015/06/22/install-opencv-3-0-and-python-2-7-on-ubuntu/
 [2]: https://github.com/Itseez/opencv/blob/master/samples/cpp/example_cmake/CMakeLists.txt
