@@ -24,6 +24,9 @@ RUN \
 
     # step 6
     apt-get install libatlas-base-dev gfortran -y && \
+    
+    # add support to HDF5 (available on OpenCV 3.1.0)
+    apt-get install libhdf5-dev -y && \
 
     # step 7
     # RUN wget https://bootstrap.pypa.io/get-pip.py
