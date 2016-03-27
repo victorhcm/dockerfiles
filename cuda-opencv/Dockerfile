@@ -5,6 +5,9 @@ MAINTAINER Victor Melo <victorhcmelo@gmail.com>
 # http://www.pyimagesearch.com/2015/06/22/install-opencv-3-0-and-python-2-7-on-ubuntu/
 # Thank you, Adrian Rosebrock (twitter.com/pyimagesearch)
 
+# Set CUDA_ROOT
+ENV CUDA_ROOT /usr/local/cuda/bin
+
 # Install dependencies
 RUN \ 
     # step 1
