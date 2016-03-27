@@ -1,3 +1,6 @@
+[![Docker Pulls](https://img.shields.io/docker/pulls/victorhcm/opencv.svg)](https://hub.docker.com/r/victorhcm/opencv/)
+[![Docker Stars](https://img.shields.io/docker/stars/victorhcm/opencv.svg)](https://hub.docker.com/r/victorhcm/opencv)
+
 # opencv
 
 OpenCV 3.1.0 + Python 2.7 bindings. Built following the [PyImageSearch guide][1].
