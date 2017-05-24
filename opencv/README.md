@@ -1,11 +1,41 @@
 [![Docker Pulls](https://img.shields.io/docker/pulls/victorhcm/opencv.svg)](https://hub.docker.com/r/victorhcm/opencv/)
 [![Docker Stars](https://img.shields.io/docker/stars/victorhcm/opencv.svg)](https://hub.docker.com/r/victorhcm/opencv)
 
-# opencv
+OpenCV 3.1.0/3.2.0 + Python 2/3 bindings. Built following the [PyImageSearch guide][1].
 
-OpenCV 3.1.0 + Python 2.7 bindings. Built following the [PyImageSearch guide][1].
+# Versions 
 
-## Usage
+This repository contains OpenCV 3.1.0 and 3.2.0 with Python bindings. The available Python versions are 2.7, 3.4 (if using Ubuntu 14.04), and 3.5 (if using Ubuntu 16.04).
+
+The default image, `victorhcm/opencv` points to version `victorhcm/opencv:3.1.0-python2.7` for compatibility and to avoid breaking any other dependent images. In the future, it will always point to the latest release of OpenCV + Python.
+
+
+## Ubuntu 14.04
+### OpenCV 3.1.0
+
+* `victorhcm/opencv:3.1.0-python2.7` [opencv/3.1.0/python2.7/Dockerfile](https://github.com/victorhcm/dockerfiles/opencv/3.1.0/python2.7)
+* `victorhcm/opencv:3.1.0-python3.4` [opencv/3.1.0/python3.4/Dockerfile](https://github.com/victorhcm/dockerfiles/opencv/3.1.0/python3.4)
+
+### OpenCV 3.2.0
+
+* `victorhcm/opencv:3.2.0-python2.7` [opencv/3.2.0/python2.7/Dockerfile](https://github.com/victorhcm/dockerfiles/opencv/3.2.0/python2.7)
+* `victorhcm/opencv:3.2.0-python3.4` [opencv/3.2.0/python3.4/Dockerfile](https://github.com/victorhcm/dockerfiles/opencv/3.2.0/python3.4)
+
+
+## Ubuntu 16.04
+### OpenCV 3.1.0
+
+* `victorhcm/opencv:3.1.0-python2.7` [opencv/3.1.0/python2.7/Dockerfile](https://github.com/victorhcm/dockerfiles/opencv/3.1.0/python2.7)
+* `victorhcm/opencv:3.1.0-python3.5` [opencv/3.1.0/python3.5/Dockerfile](https://github.com/victorhcm/dockerfiles/opencv/3.1.0/python3.5)
+
+### OpenCV 3.2.0
+
+* `victorhcm/opencv:3.2.0-python2.7` [opencv/3.2.0/python2.7/Dockerfile](https://github.com/victorhcm/dockerfiles/opencv/3.2.0/python2.7)
+* `victorhcm/opencv:3.2.0-python3.5` [opencv/3.2.0/python3.5/Dockerfile](https://github.com/victorhcm/dockerfiles/opencv/3.2.0/python3.5)
+
+
+
+# Usage
 
 Create a new container:
 ```sh
@@ -31,7 +61,7 @@ If you want a transient container, add `--rm` to remove the container after it s
 $ docker run --rm -it -v $(pwd):/host victorhcm/opencv /bin/bash
 ```
 
-### Compile
+## Compile
 
 ```sh
 $ g++ $(pkg-config --cflags --libs opencv) my-file.cpp
