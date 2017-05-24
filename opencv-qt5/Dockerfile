@@ -66,7 +66,9 @@ RUN apt-get install -y \
         imagemagick
 
 # Create devel user...
-RUN useradd -m -d /home/devel -u 1000 -U -G users,tty -s /bin/bash devel
+RUN useradd -m -d /home/devel -u 1000 -U -G users,tty -s /bin/bash devel && \
+    adduser devel sudo && \
+    echo 'devel:devel' | chpasswd
 USER devel
 ENV HOME=/home/devel
 WORKDIR /home/devel
