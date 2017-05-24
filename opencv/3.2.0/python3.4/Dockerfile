@@ -31,16 +31,16 @@ RUN \
     # step 7
     # RUN wget https://bootstrap.pypa.io/get-pip.py
     # RUN python get-pip.py
-    apt-get install python-pip -y && \
-    pip install --upgrade pip && \
+    apt-get install python3-pip -y && \
+    pip3 install --upgrade pip && \
 
     # step 8
-    pip install virtualenv virtualenvwrapper && \
+    pip3 install virtualenv virtualenvwrapper && \
     rm -rf ~/.cache/pip && \
 
     # step 9 
     apt-get install python3.4-dev -y && \
-    pip install numpy && \
+    pip3 install numpy && \
     # RUN python -c 'import numpy as np; print np.__version__'
 
     apt-get autoclean && apt-get clean && \
