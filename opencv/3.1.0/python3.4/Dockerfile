@@ -40,7 +40,7 @@ RUN \
 
     # step 9 
     apt-get -qq install python3.4-dev -y && \
-    pip3 install numpy && \
+    pip3 install --quiet numpy && \
     # RUN python -c 'import numpy as np; print np.__version__'
 
     apt-get autoclean && apt-get clean && \
