@@ -77,6 +77,7 @@ RUN \
     make install && \
     ldconfig && \
 
+    ls -R ~/opencv/build && \
     ls ~/opencv/build/lib/cv2.cpython-34m.so && \  # DEBUG
     cp ~/opencv/build/lib/cv2.cpython-34m.so /usr/local/lib/python3.4/dist-packages/cv2.so && \
 
