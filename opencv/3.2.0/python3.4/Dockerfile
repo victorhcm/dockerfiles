@@ -77,13 +77,17 @@ RUN \
     make install && \
     ldconfig && \
 
-    ls -R ~/opencv/build/ && \
-    cp ~/opencv/build/lib/cv2.cpython-34m.so /usr/local/lib/python3.4/dist-packages/cv2.so && \
+    # not required! 
+    # cp ~/opencv/build/lib/cv2.cpython-34m.so /usr/local/lib/python3.4/dist-packages/cv2.so && \
 
     # clean opencv repos
-    rm -rf ~/opencv && rm -rf ~/opencv_contrib
-
-    # step 11
-    # RUN cd ~/.virtualenvs/cv/lib/python2.7/site-packages/
-    # RUN ln -s /usr/local/lib/python2.7/site-packages/cv2.so cv2.so
-
+    rm -rf ~/opencv/.git && \
+    rm -rf ~/opencv/build && \
+    rm -rf ~/opencv/3rdparty && \
+    rm -rf ~/opencv/doc && \
+    rm -rf ~/opencv/include && \
+    rm -rf ~/opencv/platforms && \
+    rm -rf ~/opencv/modules && \
+    rm -rf ~/opencv_contrib/.git && \
+    rm -rf ~/opencv_contrib/build && \
+    rm -rf ~/opencv_contrib/doc
