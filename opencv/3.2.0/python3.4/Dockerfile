@@ -46,7 +46,8 @@ RUN \
     cd ~ && \
     wget https://github.com/Itseez/opencv/archive/3.2.0.zip && \
     unzip 3.2.0.zip && \
-    mkdir ~/opencv-3.2.0/build/ && \
+    mv opencv-3.2.0/ opencv/
+    mkdir ~/opencv/build/ && \
     rm -rf ~/3.2.0.zip && \
 
     cd ~ && \
