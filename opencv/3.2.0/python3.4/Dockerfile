@@ -3,45 +3,37 @@ MAINTAINER Victor Melo <victorhcmelo@gmail.com>
 
 # Built using PyImageSearch guide: 
 # http://www.pyimagesearch.com/2015/06/22/install-opencv-3-0-and-python-2-7-on-ubuntu/
-# Thank you, Adrian Rosebrock (twitter.com/pyimagesearch)
 
 # Install dependencies
 RUN \ 
-    # step 1
     apt-get -qq update && apt-get -qq upgrade -y && \
+    apt-get -qq install -y \
+        wget \
+        unzip \
+        libtbb2 \
+        libtbb-dev && \
+    apt-get -qq install -y \
+        build-essential \ 
+        cmake \
+        git \
+        pkg-config \
+        libjpeg8-dev \
+        libtiff4-dev \
+        libjasper-dev \
+        libpng12-dev \
+        libgtk2.0-dev \
+        libavcodec-dev \
+        libavformat-dev \
+        libswscale-dev \
+        libv4l-dev \
+        libatlas-base-dev \
+        gfortran \
+        libhdf5-dev \
+        python3-pip && \
 
-    # step 2 
-    apt-get -qq install build-essential cmake git pkg-config -y && \
-
-    # step 3
-    apt-get -qq install libjpeg8-dev libtiff4-dev libjasper-dev libpng12-dev -y && \
-
-    # step 4
-    apt-get -qq install libgtk2.0-dev -y && \
-
-    # step 5
-    apt-get -qq install libavcodec-dev libavformat-dev libswscale-dev libv4l-dev -y && \
-
-    # step 6
-    apt-get -qq install libatlas-base-dev gfortran -y && \
-    
-    # add support to HDF5 (available on OpenCV 3.1.0)
-    apt-get -qq install libhdf5-dev -y && \
-
-    # step 7
-    # RUN wget https://bootstrap.pypa.io/get-pip.py
-    # RUN python get-pip.py
-    apt-get -qq install python3-pip -y && \
     pip3 install --upgrade pip && \
-
-    # step 8
-    pip3 install virtualenv virtualenvwrapper && \
-    rm -rf ~/.cache/pip && \
-
-    # step 9 
     apt-get -qq install python3.4-dev -y && \
     pip3 install numpy && \
-    # RUN python -c 'import numpy as np; print np.__version__'
 
     apt-get autoclean && apt-get clean && \
 
@@ -52,15 +44,16 @@ RUN \
 # step 10 
 RUN \
     cd ~ && \
-    git clone https://github.com/Itseez/opencv.git && \
-    cd opencv && \
-    pwd && \
-    git checkout 3.2.0 && \
+    wget https://github.com/Itseez/opencv/archive/3.2.0.zip && \
+    unzip 3.2.0.zip && \
+    mkdir ~/opencv-3.2.0/build/ && \
+    rm -rf ~/3.2.0.zip && \
 
     cd ~ && \
-    git clone https://github.com/Itseez/opencv_contrib.git && \
-    cd opencv_contrib && \
-    git checkout 3.2.0 && \
+    wget https://github.com/opencv/opencv_contrib/archive/3.2.0.zip -O 3.2.0-contrib.zip && \
+    unzip 3.2.0-contrib.zip && \
+    mv opencv_contrib-3.2.0 opencv_contrib && \
+    rm -rf ~/3.2.0-contrib.zip && \
 
     cd /root/opencv && \
     mkdir build && \
@@ -77,17 +70,12 @@ RUN \
     make install && \
     ldconfig && \
 
-    # not required! 
-    # cp ~/opencv/build/lib/cv2.cpython-34m.so /usr/local/lib/python3.4/dist-packages/cv2.so && \
-
     # clean opencv repos
-    rm -rf ~/opencv/.git && \
     rm -rf ~/opencv/build && \
     rm -rf ~/opencv/3rdparty && \
     rm -rf ~/opencv/doc && \
     rm -rf ~/opencv/include && \
     rm -rf ~/opencv/platforms && \
     rm -rf ~/opencv/modules && \
-    rm -rf ~/opencv_contrib/.git && \
     rm -rf ~/opencv_contrib/build && \
     rm -rf ~/opencv_contrib/doc
