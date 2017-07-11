@@ -1,4 +1,4 @@
-FROM ubuntu:14.04
+FROM ubuntu:17.04
 MAINTAINER Victor Melo <victorhcmelo@gmail.com>
 
 # Built using PyImageSearch guide: 
